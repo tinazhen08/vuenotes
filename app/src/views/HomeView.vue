@@ -1,11 +1,11 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent>
       <p>Username</p>
-      <input type="text" v-model="username" required>
+      <input type="text" v-model="user.username" required>
       <p>Password</p>
-      <input type="text" v-model="password" required>
-      <button type="submit">Login</button>
+      <input type="text" v-model="user.password" required>
+      <button type="submit" @click="getData">Login</button>
     </form>
   </div>
 </template>
@@ -17,17 +17,6 @@ const user = ref('')
 function increment(){
   count.value++
 } */
-
-import { reactive } from "vue";
-
-const user = reactive({
-  username: '',
-  password: ''
-})
-
-function getData(){
-  
-}
 </script>
  
 <style scoped></style>
