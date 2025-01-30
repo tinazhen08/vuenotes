@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <form @submit.prevent>
       <p>Username</p>
@@ -19,4 +19,14 @@ function increment(){
 } */
 </script>
  
-<style scoped></style>
+<style scoped></style> -->
+
+<script setup>
+  import LogIn from '../components/LogIn.vue';
+</script>
+
+<template>
+  <main>
+    <Login message="Hello World" :count = "5"><h1>Hello Laith</h1></Login>
+  </main>
+</template>

@@ -8,6 +8,8 @@
       <input type="password" v-model="user.password"/>
       <button>Login</button>
     </form>
+    <h2 v-if="loggedIn">Hello Peter</h2>
+    <h2 v-else>Please Login</h2>
   </div>
 </template>
 
