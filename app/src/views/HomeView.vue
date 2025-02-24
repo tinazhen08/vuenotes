@@ -1,32 +1,25 @@
-<!-- <template>
+<template>
   <div>
-    <form @submit.prevent>
-      <p>Username</p>
-      <input type="text" v-model="user.username" required>
-      <p>Password</p>
-      <input type="text" v-model="user.password" required>
-      <button type="submit" @click="getData">Login</button>
-    </form>
+    <PokemonCard v-for="(mon, index) in pokemon" :key="mon.name" :name="mon.name" :index="index"/>
   </div>
 </template>
 
 <script setup>
-/* import {ref, reactive} from 'vue'
-const count = ref(0)
-const user = ref('')
-function increment(){
-  count.value++
-} */
-</script>
- 
-<style scoped></style> -->
+import { ref, onMounted } from 'vue';
+import PokemonCard from '@/components/PokemonCard.vue';
 
-<script setup>
-  import LogIn from '../components/LogIn.vue';
+const pokemon = ref("");
+async function getPokemon(){
+  let res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
+  let data = await res.json()
+  pokemon.value = data.results
+}
+
+onMounted(()=> {
+  getPokemon();
+});
 </script>
 
-<template>
-  <main>
-    <Login message="Hello World" :count = "5"><h1>Hello Laith</h1></Login>
-  </main>
-</template>
+<style scoped>
+
+</style>
