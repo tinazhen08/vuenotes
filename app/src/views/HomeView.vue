@@ -1,6 +1,10 @@
 <template>
   <div>
-    <PokemonCard v-for="(mon, index) in pokemon" :key="mon.name" :name="mon.name" :index="index"/>
+    <PokemonCard 
+    v-for="(mon, index) in pokemon" 
+    :key="index" 
+    :pokemon="mon" 
+    :id="index + 1"/>
   </div>
 </template>
 
